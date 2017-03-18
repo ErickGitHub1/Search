@@ -10,7 +10,8 @@ int main()
 //utworzenie tablicy liczb	
 int tablica_liczb[ROZMIAR_TABLICY] = {1,4,3,2,5};
 int indeks = 0;
-int szukany_element = tablica_liczb[2];
+int szukany_element = 4;
+int liczba_porownan = 0;
 
 //sortowanie tablicy
 std::sort( tablica_liczb, tablica_liczb + 6 );
@@ -26,11 +27,14 @@ for(int i  = 0  ; i < 5 ; i++)
 //wyszukiwanie liniowe
 while(indeks <= (ROZMIAR_TABLICY - 1))
 {
+	liczba_porownan++;
 	if(tablica_liczb[indeks] == szukany_element)
-	{
+	{   
+		printf("Liczba porownan: %d\n" , liczba_porownan);
 		printf("Odnaleziono element %d pod indeksem %d", szukany_element, indeks);
 		break;
-	}	
+	}else
+	
 	indeks++;
 };
 
