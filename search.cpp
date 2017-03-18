@@ -1,15 +1,57 @@
 #include <stdio.h>
-//#include <iostream>
 #include <algorithm>
-//using namespace std;
+
 
 #define ROZMIAR_TABLICY 5
+
+void sortowanie_liniowe(int *, int); 
+void wyszukiwanie_liniowe(int tablica_do_przeszukania[] ,int poszukiwany_element);
+
+
+int main()
+{
+//utworzenie tablicy liczb	
+int tablica_liczb[ROZMIAR_TABLICY] = {1,4,3,4,5};
+
+//sortowanie tablicy
+sortowanie_liniowe(tablica_liczb, ROZMIAR_TABLICY);  
+
+//wyswietlenie posortowanej tablicy
+for(int i  = 0  ; i < 5 ; i++)
+{
+	printf("%d", tablica_liczb[i]);
+	printf("\n");
+}		
+
+wyszukiwanie_liniowe(tablica_liczb , 4);
+
+
+
+return 0;
+}
+
+
+//Funkcja dla sortowania liniowego
+void sortowanie_liniowe(int * tab, int r) 
+{ 
+    int i, j, temp; 
+    for (i = 0; i < r; i++) 
+        for (j = 0; j < r-1; j++) 
+        { 
+            if (tab[j] > tab[j+1]) 
+            { 
+                temp = tab[j+1]; 
+                tab[j+1] = tab[j]; 
+                tab[j] = temp; 
+            } 
+        } 
+}
 
 //Funkcja do wyszukiwanie liniowego
 void wyszukiwanie_liniowe(int tablica_do_przeszukania[] ,int poszukiwany_element)
 {
 int indeks = 0;
-int liczba_porownan = 0;
+int liczba_porownan = 1;
 	
 while(tablica_do_przeszukania[indeks] != poszukiwany_element)
 {
@@ -25,24 +67,4 @@ if(indeks == ROZMIAR_TABLICY)
 		printf("Odnaleziono element %d pod indeksem %d", poszukiwany_element, indeks);
 		printf("\nLiczba porownan: %d\n\n" , liczba_porownan);
 	}	
-}
-
-int main()
-{
-//utworzenie tablicy liczb	
-int tablica_liczb[ROZMIAR_TABLICY] = {1,4,3,4,5};
-
-//sortowanie tablicy
-std::sort( tablica_liczb, tablica_liczb + 6 );
-
-//wyswietlenie posortowanej tablicy
-for(int i  = 0  ; i < 5 ; i++)
-{
-	printf("%d", tablica_liczb[i]);
-	printf("\n");
-}		
-
-wyszukiwanie_liniowe(tablica_liczb , 4);
-
-return 0;
 }
