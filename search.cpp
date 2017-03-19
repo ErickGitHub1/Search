@@ -2,19 +2,22 @@
 #include <algorithm>
 
 
-#define ROZMIAR_TABLICY 5
-
+//#define ROZMIAR_TABLICY 5
+int rozmiar_tablicy;
 void sortowanie_liniowe(int *, int); 
 void wyszukiwanie_liniowe(int tablica_do_przeszukania[] ,int poszukiwany_element);
 
 
 int main()
 {
+	
+printf("Podaj rozmiar tablicy: ");
+scanf("%d", &rozmiar_tablicy);	
 //utworzenie tablicy liczb	
-int tablica_liczb[ROZMIAR_TABLICY] = {1,4,3,4,5};
+int tablica_liczb[rozmiar_tablicy] = {1,4,3,4,5};
 
 //sortowanie tablicy
-sortowanie_liniowe(tablica_liczb, ROZMIAR_TABLICY);  
+sortowanie_liniowe(tablica_liczb, rozmiar_tablicy);  
 
 //wyswietlenie posortowanej tablicy
 for(int i  = 0  ; i < 5 ; i++)
@@ -58,7 +61,7 @@ while(tablica_do_przeszukania[indeks] != poszukiwany_element)
 	liczba_porownan++;
 	indeks++;
 }
-if(indeks == ROZMIAR_TABLICY)
+if(indeks == rozmiar_tablicy)
 	{   
 		printf("Brak elementu %d w tablicy", poszukiwany_element);
 		
