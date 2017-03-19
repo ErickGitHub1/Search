@@ -12,16 +12,21 @@ void wczytajTablice(int* );
 
 int main()
 {
-int *tablica_liczb;	
+int *tablica_liczb;
+int poszukiwana_liczba;	
 printf("Podaj rozmiar tablicy: ");
 scanf("%d", &rozmiar_tablicy);
 
  
 tablica_liczb = (int*) malloc(rozmiar_tablicy * sizeof(*tablica_liczb));
 wczytajTablice(tablica_liczb);
+
+//wczytanie szukanej liczby
+printf("Podaj szukana liczbe: ");
+scanf("%d", &poszukiwana_liczba);
 		
 //wyszukiwanie liniowe tablicy
-wyszukiwanie_liniowe(tablica_liczb , 4);
+wyszukiwanie_liniowe(tablica_liczb , poszukiwana_liczba);
 
 free(tablica_liczb);
 
@@ -44,11 +49,12 @@ while((tablica_do_przeszukania[indeks] != poszukiwany_element) && (indeks < rozm
 if(indeks == rozmiar_tablicy)
 	{   
 		printf("Brak elementu %d w tablicy", poszukiwany_element);
+		printf("\nLiczba porownan wynosi %d:", liczba_porownan);
 		
 	}else
 	{
 		printf("Odnaleziono element %d pod indeksem %d", poszukiwany_element, indeks);
-		printf("\nLiczba porownan: %d\n\n" , liczba_porownan);
+		printf("\nLiczba porownan wynosi: %d\n\n" , liczba_porownan);
 	}	
 }
 
