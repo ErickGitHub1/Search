@@ -5,6 +5,7 @@ int rozmiar_tablicy;
  
 void wyszukiwanie_liniowe(int *,int );
 void wczytajTablice(int* );
+void sortowanie_liniowe(int *, int );
 
 int main()
 {
@@ -17,11 +18,11 @@ scanf("%d", &rozmiar_tablicy);
 tablica_liczb = (int*) malloc(rozmiar_tablicy * sizeof(*tablica_liczb));
 wczytajTablice(tablica_liczb);
 
-//wczytanie szukanej liczby
+// Wczytanie szukanej liczby
 printf("Podaj szukana liczbe: ");
 scanf("%d", &poszukiwana_liczba);
 		
-//wyszukiwanie liniowe tablicy
+// Wyszukiwanie liniowe tablicy
 wyszukiwanie_liniowe(tablica_liczb , poszukiwana_liczba);
 
 free(tablica_liczb);
@@ -30,7 +31,7 @@ return 0;
 }
 
 
-//Funkcja do wyszukiwanie liniowego
+// Funkcja do wyszukiwanie liniowego
 void wyszukiwanie_liniowe(int *tablica_do_przeszukania ,int poszukiwany_element)
 {
 int indeks = 0;
@@ -54,7 +55,7 @@ if(indeks == rozmiar_tablicy)
 	}	
 }
 
-//wczytywanie tablicy
+// Wczytywanie tablicy
 void wczytajTablice(int* tablica){
      int n=rozmiar_tablicy;
      int i=0;
@@ -63,3 +64,19 @@ void wczytajTablice(int* tablica){
                     scanf("%d",&(*tablica)+i);
                     }     
      }
+     
+// Funkcja dla sortowania liniowego
+ void sortowanie_liniowe(int *tab, int r) 
+ { 
+     int i, j, temp; 
+     for (i = 0; i < r; i++) 
+         for (j = 0; j < r-1; j++) 
+         { 
+             if (tab[j] > tab[j+1]) 
+             { 
+                 temp = tab[j+1]; 
+                 tab[j+1] = tab[j]; 
+                 tab[j] = temp; 
+             } 
+         } 
+ }    
