@@ -3,7 +3,8 @@
 
 int rozmiar_tablicy;
  
-void wyszukiwanie_liniowe(int *,int );
+//void wyszukiwanie_liniowe(int *,int );
+void wyszukiwanie_binarne(int*, int);
 void wczytajTablice(int* );
 void sortowanie_liniowe(int *, int );
 
@@ -35,7 +36,9 @@ scanf("%d", &poszukiwana_liczba);
 
 	
 // Wyszukiwanie liniowe tablicy
-wyszukiwanie_liniowe(tablica_liczb , poszukiwana_liczba);
+//wyszukiwanie_liniowe(tablica_liczb , poszukiwana_liczba);
+wyszukiwanie_binarne(tablica_liczb, poszukiwana_liczba);
+
 
 free(tablica_liczb);
 
@@ -43,8 +46,8 @@ return 0;
 }
 
 
-// Funkcja do wyszukiwanie liniowego
-void wyszukiwanie_liniowe(int *tablica_do_przeszukania ,int poszukiwany_element)
+// Funkcja do wyszukiwania liniowego
+/*void wyszukiwanie_liniowe(int *tablica_do_przeszukania ,int poszukiwany_element)
 {
 int indeks = 0;
 int liczba_porownan = 1;
@@ -65,6 +68,31 @@ if(indeks == rozmiar_tablicy)
 		printf("Odnaleziono element %d pod indeksem %d", poszukiwany_element, indeks);
 		printf("\nLiczba porownan wynosi: %d\n\n" , liczba_porownan);
 	}	
+}*/
+
+// Funkcja do wyszukiwania binarnego
+void wyszukiwanie_binarne(int* tablica, int poszukiwany_element)
+{
+	  int indeks_elementu_o_kluczu_k ;
+	  int indeks_srodkowy = 0;
+	  int obiegi = 0 ; 
+	  int indeks_poczatkowy = 0; 
+	  int indeks_koncowy = rozmiar_tablicy - 1;
+	  
+  while(indeks_poczatkowy <= indeks_koncowy)
+  {
+    obiegi++;
+    indeks_srodkowy = (indeks_poczatkowy + indeks_koncowy)/2 ;
+    
+    if(tablica[indeks_srodkowy] == poszukiwany_element)
+    {
+      indeks_elementu_o_kluczu_k = indeks_srodkowy; 
+      break;
+    }
+    else if(poszukiwany_element < tablica[indeks_srodkowy]) indeks_koncowy = indeks_srodkowy - 1;
+    else indeks_poczatkowy = indeks_srodkowy + 1;
+  }
+   printf("Poszukiwany element %d znajduje sie pod indeksem %d", poszukiwany_element, indeks_elementu_o_kluczu_k);
 }
 
 // Wczytywanie tablicy
