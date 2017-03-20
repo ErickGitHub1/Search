@@ -14,14 +14,26 @@ int poszukiwana_liczba;
 printf("Podaj rozmiar tablicy: ");
 scanf("%d", &rozmiar_tablicy);
 
- 
+// Alokacja pamieci dla tablicy n elementow
 tablica_liczb = (int*) malloc(rozmiar_tablicy * sizeof(*tablica_liczb));
+
+// Wczytanie liczb do tablicy
 wczytajTablice(tablica_liczb);
+
+sortowanie_liniowe(tablica_liczb, rozmiar_tablicy);
+
+printf("Posortowana tablica:\n");
+
+for(int i  = 0 ; i < rozmiar_tablicy ; i++)
+{
+	printf("%d\n", tablica_liczb[i]);
+}
 
 // Wczytanie szukanej liczby
 printf("Podaj szukana liczbe: ");
 scanf("%d", &poszukiwana_liczba);
-		
+
+	
 // Wyszukiwanie liniowe tablicy
 wyszukiwanie_liniowe(tablica_liczb , poszukiwana_liczba);
 
@@ -61,6 +73,7 @@ void wczytajTablice(int* tablica){
      int i=0;
  
      for(i = 0 ;i<n;i++){
+					printf("Liczba %d: ", (i+1));
                     scanf("%d",&(*tablica)+i);
                     }     
      }
