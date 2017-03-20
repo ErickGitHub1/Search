@@ -1,1 +1,1 @@
-/*** Wyszukiwanie binarne ***/
+/*** Wyszukiwanie liniowe ***/
